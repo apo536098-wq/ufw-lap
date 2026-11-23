@@ -1,0 +1,9 @@
+Status: active
+
+     To                         Action      From
+     --                         ------      ----
+[ 1] Anywhere                   DENY IN     203.0.113.5
+[ 2] 22/tcp                     LIMIT IN    Anywhere
+[ 3] 80/tcp                     ALLOW IN    Anywhere
+[ 4] 22/tcp (v6)                LIMIT IN    Anywhere (v6)
+[ 5] 80/tcp (v6)                ALLOW IN    Anywhere (v6)

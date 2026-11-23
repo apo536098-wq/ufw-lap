@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ufw-lab"
+version = "0.2.0"
+description = "UFW kural sıralaması lab'ı, simülatör ve çevrimdışı UFW denetleyici/log analizcisi (eğitim ve savunma amaçlı)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Abdulkadir Erkan" }]
+keywords = ["ufw", "firewall", "education", "simulation", "defense"]
+
+[project.scripts]
+ufwguard = "ufwguard.cli:main"
+
+[tool.setuptools]
+packages = ["ufwsim", "ufwguard"]
+
+[tool.setuptools.package-data]
+ufwguard = ["samples/*"]

@@ -1,0 +1,26 @@
+name: tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Testleri çalıştır
+        run: python -m unittest discover -s tests -t . -v
+      - name: Deneyleri çalıştır
+        run: |
+          for f in experiments/0*.py; do python "$f" > /dev/null; done
+      - name: ufwguard örnekleri
+        run: |
+          python -m ufwguard demo > /dev/null
+          python -m ufwguard audit ufwguard/samples/status_fixed.txt --fail-on high
+          ! python -m ufwguard audit ufwguard/samples/status_wrong_order.txt --fail-on high > /dev/null

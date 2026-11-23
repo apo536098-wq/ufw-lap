@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+*.egg-info/
+
+# Kendi gerçek log ve durum dosyaların yanlışlıkla yüklenmesin (IP adresleri kişisel veri sayılabilir)
+*.log
+status_*.txt
+!ufwguard/samples/ufw.log
+!ufwguard/samples/status_*.txt
